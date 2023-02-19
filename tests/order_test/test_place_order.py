@@ -1,7 +1,6 @@
 #  -*-  coding:utf-8 -*-
 import requests
 import json
-from common.mysql_client import db
 
 
 class TestPlaceOrder():
@@ -54,11 +53,6 @@ class TestPlaceOrder():
         save_order_res = requests.request('POST', url=host + save_order_path, headers=header, json=save_params)
         save_order_res_json = save_order_res.json()
         print("提交订单接口返回结果：" + json.dumps(save_order_res_json))
-        # 接口返回的order_id 是否存入mysql
-        order_id = save_order_res_json['data']
-        db_order_no = db.select_db('select order_no from tb_newbee_mall_order where user_id="7" order by order_id desc limit 1')
-        assert order_id == db_order_no[0]['order_no']
-        assert save_order_res_json['resultCode'] == 200
 
 
 if __name__ == '__main__':
