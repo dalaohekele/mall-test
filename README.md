@@ -18,6 +18,7 @@ order_process | 下单业务流程
 mysql_assert | mysql断言使用
 public | 项目公共部分封装
 data_driven | 数据驱动封装
+allure | 测试报告接入
 add_interface |增量用例添加
 
 ### 参考项目
